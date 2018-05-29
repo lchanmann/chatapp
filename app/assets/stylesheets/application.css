@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#message-list {
+  min-height: 50vh;
+  overflow-y: scroll;
+}
+
+#message-input textarea {
+  width: 98%;
+}
+
