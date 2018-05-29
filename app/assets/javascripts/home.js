@@ -1,21 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const $messageText = document.querySelector('#message-input #messageText');
-  const $btn = document.querySelector('#message-input button');
-  const $messageList = document.querySelector('#message-list ul');
+document.addEventListener('DOMContentLoaded', function() {
+  var $messageText = document.querySelector('#message-input #messageText');
+  var $btn = document.querySelector('#message-input button');
+  var $messageList = document.querySelector('#message-list ul');
 
   // handle message received
   App.chat.received = function(data) {
-    const $messageItem = document.createElement('li');
+    var $messageItem = document.createElement('li');
 
-    $messageItem.append(`${data.sent_by}: ${data.body}`);
+    $messageItem.append(data.sent_by + ': ' + data.body);
     $messageList.append($messageItem);
   };
 
   // handle button click
-  $btn.addEventListener('click', () => {
-    const message = { body: $messageText.value };
+  $btn.addEventListener('click', function() {
+    var message = { body: $messageText.value };
 
-    App.chat.send_message({ message });
+    App.chat.send_message({ message: message });
     $messageText.value = '';
   });
 });
